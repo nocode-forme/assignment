@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manage Reservation</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="reserve.html">Reserve a Table</a></li>
+          <li>Reservations</li>
+          <li><strong>Isaac</strong></li>
+          <li><a href="sign-in.html" target="">Log Out</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form method="post">
+        <h1>Manage Reservation</h1>
+        <section>
+          <section id="details">
+            <h1>Reserve</h1>
+            <div class="change-restaurant">
+              <p>a table at</p>
+              <select name="restaurant">
+                <option value="chakan">
+                  <span lang="jp">茶館</span> Chakan
+                </option>
+                <option value="hizure">
+                  <span lang="jp">昼膳</span> Hizure
+                </option>
+                <option value="banen"><span lang="jp">晩宴</span> Banen</option>
+              </select>
+            </div>
+            <table id="parameters">
+              <tr>
+                <th scope="col">for</th>
+                <th scope="col">on</th>
+                <th scope="col">at</th>
+              </tr>
+              <tr>
+                <!-- will progress to design in the figma but for now like this first -->
+                <td>
+                  <input
+                    type="number"
+                    name="persons"
+                    value="1"
+                    min="1"
+                    max="8"
+                  />
+                </td>
+                <td><input type="date" name="date" /></td>
+                <td><input type="time" name="time" required /></td>
+              </tr>
+            </table>
+          </section>
+          <section>
+            <input type="button" value="Check Availability" />
+          </section>
+          <!-- will already have pre-exisitng data inside -->
+          <section id="particulars">
+            <div class="left-col">
+              <label for="mr"> Mr</label>
+              <input
+                type="radio"
+                name="salutation"
+                id="mr"
+                value="mr"
+                required
+              />
+              <label for="ms"> Ms</label>
+              <input
+                type="radio"
+                name="salutation"
+                id="ms"
+                value="ms"
+                required
+              />
+              <label for="mx"> Mx</label>
+              <input
+                type="radio"
+                name="salutation"
+                id="mx"
+                value="mx"
+                required
+              />
+              <br />
+
+              <input
+                name="first-name"
+                autocomplete="given-name"
+                placeholder="First Name"
+                required
+              />
+              <br />
+              <input
+                name="last-name"
+                autocomplete="family-name"
+                placeholder="Last Name"
+                required
+              />
+              <br />
+              <input
+                type="email"
+                autocomplete="email"
+                placeholder="Email"
+                name="email"
+                pattern="[a-z0-9]+\@[a-z]+\.[a-z]+"
+                required
+              />
+            </div>
+            <div class="right-col">
+              <!-- for now phone number accept only Singaporean hp no -->
+              <input
+                type="number"
+                name="contact"
+                placeholder="Phone Number"
+                pattern="([0-9]{8}){1}"
+              />
+              <!-- will be a submit button but for now will be a link -->
+              <a href="confirmed.html"> Reserve </a>
+            </div>
+          </section>
+        </section>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign in</title>
+  </head>
+  <body>
+    <main>
+      <section class="header">
+        <h1>Sign In</h1>
+        <form method="post">
+          <input name="username" placeholder="Username" required />
+          <br />
+          <input
+            name="password"
+            placeholder="Password"
+            type="password"
+            required
+          />
+          <br />
+          <input
+            type="button"
+            value="Sign In"
+            onclick="window.location.replace('reserve.html')"
+          />
+          <!-- temporarily a button, but will be able to send data later -->
+        </form>
+      </section>
+      <section>
+        <a href=""> <em>I forgot my password</em></a>
+        <a href="sign-up.html"><em>Sign Up</em></a>
+        <!-- for now this will redirect to another page, although it will be integrated together into this file when JS learnt. -->
+      </section>
+      <aside>
+        <!-- insert picture -->
+      </aside>
+    </main>
+  </body>
+</html>

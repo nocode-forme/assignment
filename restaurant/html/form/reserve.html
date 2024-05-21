@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reserve</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>Reserve a Table</li>
+          <li><a href="view-reservations.html">Reservations</a></li>
+          <li><strong>Isaac</strong></li>
+          <li><a href="sign-in.html" target="">Log Out</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form>
+        <section id="details">
+          <h1>Reserve</h1>
+          <div class="change-restaurant">
+            <p>a table at</p>
+            <select name="restaurant">
+              <option value="chakan"><span lang="jp">茶館</span> Chakan</option>
+              <option value="hizure"><span lang="jp">昼膳</span> Hizure</option>
+              <option value="banen"><span lang="jp">晩宴</span> Banen</option>
+            </select>
+          </div>
+          <table id="parameters">
+            <tr>
+              <th scope="col">for</th>
+              <th scope="col">on</th>
+              <th scope="col">at</th>
+            </tr>
+            <tr>
+              <!-- will progress to design in the figma but for now like this first -->
+              <td>
+                <input type="number" name="persons" value="1" min="1" max="8" />
+              </td>
+              <td><input type="date" name="date" /></td>
+              <td><input type="time" name="time" required /></td>
+            </tr>
+          </table>
+        </section>
+        <section>
+          <input type="button" value="Check Availability" />
+        </section>
+        <!-- will change depending on whether or not reservation is found -->
+        <section id="particulars">
+          <div class="heading">
+            <p id="back">&#x003C; back</p>
+            <p>
+              Before confirming your registration, please fill out the
+              following.
+            </p>
+          </div>
+          <div class="left-col">
+            <label for="mr"> Mr</label>
+            <input type="radio" name="salutation" id="mr" value="mr" required />
+            <label for="ms"> Ms</label>
+            <input type="radio" name="salutation" id="ms" value="ms" required />
+            <label for="mx"> Mx</label>
+            <input type="radio" name="salutation" id="mx" value="mx" required />
+            <br />
+            <input
+              name="first-name"
+              autocomplete="given-name"
+              placeholder="First Name"
+              required
+            />
+            <br />
+            <input
+              name="last-name"
+              autocomplete="family-name"
+              placeholder="Last Name"
+              required
+            />
+            <br />
+            <input
+              type="email"
+              autocomplete="email"
+              placeholder="Email"
+              name="email"
+              pattern="[a-z0-9]+\@[a-z]+\.[a-z]+"
+              required
+            />
+          </div>
+          <div class="right-col">
+            <input
+              type="number"
+              name="contact"
+              placeholder="Phone Number"
+              pattern="([0-9]{8}){1}"
+            />
+            <!-- will be a submit button but for now will be a link -->
+            <a href="confirmed.html"> Reserve </a>
+          </div>
+        </section>
+        <section class="no-slot">
+          <p>
+            Unfortunately, we have no slots available at the chosen date and
+            time. Please choose a different date and time, and check the
+            availability again!
+          </p>
+        </section>
+      </form>
+    </main>
+  </body>
+</html>
