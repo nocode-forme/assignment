@@ -27,7 +27,7 @@ body {
   font-family: Helvetica-Neue, sans-serif;
 }
 
-main 
+main {
   position: relative;
   width: 100%;
   top: 100px;
@@ -51,11 +51,14 @@ p.small-text {
     margin: 100px 0px;
 }
 
-.first-image {
-  height: 700px;
-  overflow: hidden;
+article.afternoon-tea .description {
+    background-image: url(../assets/bed-of-roses.png);
 }
 
-div.first-image img {
-  scale: 1.3;
+article.lunch .description {
+    background-image: url(../assets/lunch-diner.png);
+}
+
+article.dinner .description {
+    background-image: url(../assets/dinner-diner.png);
 }
