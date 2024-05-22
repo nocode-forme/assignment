@@ -1,40 +1,32 @@
 /* no space on the sides */
-* {
-  padding: 0%;
-  margin: 0%;
-  box-sizing: border-box;
-}
-
-body {
-  width: 1000px;
-  height: 300px;
-}
-
-main {
-  position: relative;
-  top: 50px;
-}
 
 header {
-  width: 100%;
-  height: 5%;
   position: fixed;
+  min-width: 1000px;
+  width: 100%;
+  height: 100px;
+  top: -10px;
   z-index: 1;
   background-color: white;
   border-bottom: black 1px solid;
 }
 
-header nav ul li:first-child {
-    padding-left: 20px;
+header nav {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+header nav ul {
+  display: inline-flex;
 }
 
 header nav ul li {
   position: relative;
-  padding-right: 20px;
-  display: inline-block;
-  top: 20px;
-}
-
-#book-now {
-  float: right;
+  list-style-type: none;
+  align-content: center;
+  width: 100px;
+  margin: 0px 20px;
 }
