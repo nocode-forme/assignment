@@ -9,7 +9,8 @@ body {
   text-align: center;
   font-family: Helvetica-Neue, sans-serif;
 }
-section.app-showcase, footer {
+section.app-showcase,
+footer {
   position: relative;
   top: 200px;
 }
@@ -44,25 +45,28 @@ p.small-text {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 img {
-  width: 75%;
-  height: 80%;
+  width: 100%;
 }
+.image {
+  width: 900px;
+  margin: 0px 50px;
+}
+
 
 .text {
   width: 70%;
   margin: 0px 100px;
-  z-index: 1;
 }
 
 .text p {
   padding: 30px 0px;
 }
 
-.afternoon-tea .text, .dinner .text {
+.afternoon-tea .text,
+.dinner .text {
   text-align: left;
 }
 
