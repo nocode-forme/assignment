@@ -1,20 +1,3 @@
-@font-face {
-    font-family: Helvetica-Neue;
-    src: url(../fonts/Helvetica\_01.ttf) format(ttf);
-}
-
-@font-face {
-    font-family: Helvetica-Neue;
-    font-weight: bold;
-    src: url(../fonts/Helvetica\ Bold\ 02.ttf) format(ttf);
-}
-
-@font-face {
-    font-family: Helvetica-Neue;
-    font-weight: italic;
-    src: url(../fonts/Helvetica\ Oblique.ttf) format(ttf);
-}
-
 * {
   padding: 0%;
   margin: 0%;
