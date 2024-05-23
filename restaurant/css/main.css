@@ -9,6 +9,10 @@ body {
   text-align: center;
   font-family: Helvetica-Neue, sans-serif;
 }
+section.app-showcase, footer {
+  position: relative;
+  top: 200px;
+}
 
 main {
   position: relative;
@@ -18,35 +22,66 @@ main {
   font-size: 130%;
 }
 
-section#app-showcase, footer {
-    position: relative;
-    top: 300px;
-}
-
 h1 {
   margin-top: 100px;
   margin-bottom: 20px;
   font-size: 100px;
 }
 
-h1+p {
-    padding: 0 50px;
+h1 + p {
+  padding: 0 50px;
 }
 
 p.small-text {
-    font-size: 15px;
-    font-style: italic;
-    margin: 100px 0px;
+  font-size: 15px;
+  font-style: italic;
+  margin: 100px 0px;
+}
+
+.description {
+  height: 600px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+img {
+  width: 75%;
+  height: 80%;
+}
+
+.text {
+  width: 70%;
+  margin: 0px 100px;
+  z-index: 1;
+}
+
+.text p {
+  padding: 30px 0px;
+}
+
+.afternoon-tea .text, .dinner .text {
+  text-align: left;
+}
+
+.lunch .text {
+  text-align: right;
+}
+
+.description {
+  background-size: cover;
 }
 
 article.afternoon-tea .description {
-    background-image: url(../assets/bed-of-roses.png);
+  background-image: url(../assets/bed-of-roses.png);
 }
 
 article.lunch .description {
-    background-image: url(../assets/lunch-diner.png);
+  background-image: url(../assets/lunch-diner.png);
 }
 
 article.dinner .description {
-    background-image: url(../assets/dinner-diner.png);
+  background-image: url(../assets/dinner-diner.png);
 }
