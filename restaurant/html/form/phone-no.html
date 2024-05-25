@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sign in</title>
+    <link rel="stylesheet" href="../../css/authentication.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Sign In</h1>
+        <form method="post">
+          <input name="username" placeholder="Username:" required />
+          <input
+            name="password"
+            placeholder="Password:"
+            type="password"
+            required
+          />
+          <br />
+          <input
+            type="button"
+            value="Sign In"
+            onclick="window.location.replace('reserve.html')"
+          />
+          <br />
+          <!-- temporarily a button, but will be able to send data later -->
+        </form>
+      </section>
+      <aside>
+        <img src="../../assets/exterior.jpeg" alt="exterior of hotel" />
+      </aside>
+    </main>
+  </body>
+</html>
