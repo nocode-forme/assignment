@@ -1,0 +1,27 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: Helvetica-Neue, sans-serif;
+}
+
+header {
+    display: flex;
+    height: 100px;
+    align-items: center;
+    flex-direction: row;
+    background-color: lightgray;
+}
+
+nav ul li {
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 100px;
+    font-weight: bold;
+}
+
+li:first-child {
+    margin-left: 100px;
+}

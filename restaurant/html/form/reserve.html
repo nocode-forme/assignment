@@ -2,55 +2,88 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Reserve</title>
+    <title>Reserve a Table</title>
+    <link rel="stylesheet" href="../../css/form-header.css" />
+    <link rel="stylesheet" href="../../css/form-reserve.css"
   </head>
   <body>
     <header>
       <nav>
         <ul>
           <li>Reserve a Table</li>
-          <li><a href="view-reservations.html">Reservations</a></li>
+          <li><a href="view-reservations.html">My Reservations</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <form> 
+      <form>
         <section id="details">
-          <h1>Reserve</h1>
-          <div class="change-restaurant">
-            <p>a table at</p>
-            <select name="restaurant">
-              <option value="chakan"><span lang="jp">茶館</span> Chakan</option>
-              <option value="hizure"><span lang="jp">昼膳</span> Hizure</option>
-              <option value="banen"><span lang="jp">晩宴</span> Banen</option>
-            </select>
+          <div id="left">
+            <h1>Reserve</h1>
+            <div class="change-restaurant">
+              <p>a table at</p>
+              <select name="restaurant">
+                <option
+                  value="chakan"
+                  onchange="document.getElementById('particulars').style.visibility='hidden'"
+                >
+                  <span lang="jp">茶館</span> Chakan
+                </option>
+                <option
+                  value="hizure"
+                  onchange="document.getElementById('particulars').style.visibility='hidden'"
+                >
+                  <span lang="jp">昼膳</span> Hizure
+                </option>
+                <option
+                  value="banen"
+                  onchange="document.getElementById('particulars').style.visibility='hidden'"
+                >
+                  <span lang="jp">晩宴</span> Banen
+                </option>
+              </select>
+            </div>
           </div>
-          <table id="parameters">
-            <tr>
-              <th scope="col">for</th>
-              <th scope="col">on</th>
-              <th scope="col">at</th>
-            </tr>
-            <tr>
-              <!-- will progress to design in the figma but for now like this first -->
-              <td>
-                <input type="number" name="persons" value="1" min="1" max="8" />
-              </td>
-              <td><input type="date" name="date" /></td>
-              <td><input type="time" name="time" required /></td>
-            </tr>
-          </table>
+          <div id="right">
+            <table
+              id="parameters"
+              onchange="document.getElementById('particulars').style.visibility='hidden'"
+            >
+              <tr>
+                <th scope="col">for</th>
+                <th scope="col">on</th>
+                <th scope="col">at</th>
+              </tr>
+              <tr>
+                <!-- will progress to design in the figma but for now like this first -->
+                <td>
+                  <input
+                    type="number"
+                    name="persons"
+                    value="1"
+                    min="1"
+                    max="8"
+                  />
+                </td>
+                <td><input type="date" name="date" /></td>
+                <td><input type="time" name="time" required /></td>
+              </tr>
+            </table>
+          </div>
         </section>
-        <section>
-          <input type="button" value="Check Availability" />
+        <section class="center">
+          <input
+            type="button"
+            value="Check Availability"
+            onclick="document.getElementById('particulars').style.visibility='visible'"
+          />
         </section>
         <!-- will change depending on whether or not reservation is found -->
         <section id="particulars">
-          <div class="heading">
-            <p id="back">&#x003C; back</p>
+          <div id="heading">
             <p>
               Before confirming your registration, please fill out the
-              following.
+              following:
             </p>
           </div>
           <div class="left-col">
@@ -91,11 +124,12 @@
               placeholder="Phone Number"
               pattern="([0-9]{8}){1}"
             />
+            <br />
             <!-- will be a submit button but for now will be a link -->
             <a href="confirmed.html"> Reserve </a>
           </div>
         </section>
-        <section class="no-slot">
+        <section id="no-slot">
           <p>
             Unfortunately, we have no slots available at the chosen date and
             time. Please choose a different date and time, and check the
