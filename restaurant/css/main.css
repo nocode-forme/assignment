@@ -96,13 +96,16 @@ img {
 }
 
 article.afternoon-tea .description {
-  background-image: url(../assets/bed-of-roses.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+  rgba(0, 0, 0, 0.5)), url(../assets/bed-of-roses.png);
 }
 
 article.lunch .description {
-  background-image: url(../assets/lunch-diner.png);
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5),
+  rgba(0, 0, 0, 0.5)), url(../assets/lunch-diner.png);
 }
 
 article.dinner .description {
-  background-image: url(../assets/dinner-diner.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+  rgba(0, 0, 0, 0.5)), url(../assets/dinner-diner.png);
 }
