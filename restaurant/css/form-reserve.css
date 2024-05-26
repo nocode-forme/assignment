@@ -4,7 +4,7 @@ body {
 }
 
 main {
-  height: 70%;
+  height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
@@ -24,6 +24,20 @@ main {
   display: flex;
   width: 100%;
   justify-content: center;
+  margin-top: 100px;
+}
+
+.center input, #particulars a {
+  padding: 15px;
+  background-color: white;
+  border: 0px;
+  font-weight: bold;
+}
+
+.center input:hover {
+  background-color: black;
+  border-radius: 10px;
+  color: white;
 }
 
 #particulars,
@@ -41,6 +55,7 @@ main {
 h1,
 p {
   display: inline-block;
+  text-align: center;
 }
 
 h1 {
@@ -55,7 +70,8 @@ th {
   font-size: 20px;
 }
 
-input, select {
+input,
+select {
   border-top: none;
   border-left: none;
   border-right: none;
@@ -72,10 +88,34 @@ select {
   margin: 0px 200px;
 }
 
-.left-col {
-  float: left;
+#inline-block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0px;
 }
 
-.right-col {
-  float: right;
+#inline-block input {
+  flex-direction: row;
+}
+
+#radio, #particulars input {
+  margin: 5px 0px;
+}
+
+table {
+  position: relative;
+  top: 40px
+}
+
+#particulars a:hover {
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+}
+
+#particulars a {
+  position: relative;
+  bottom: 100px;
+  text-decoration: none;
 }

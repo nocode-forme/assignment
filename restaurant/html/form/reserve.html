@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="../../css/form-reserve.css"
   </head>
   <body>
+    <script>
+      function hideParticulars() {
+        document.getElementById("particulars").style.visibility = "hidden";
+        document.getElementById("check").style.display = "block";
+      }
+      function showParticulars() {
+        document.getElementById("particulars").style.visibility = "visible";
+        document.getElementById("check").style.display = "none";
+      }
+    </script>
     <header>
       <nav>
         <ul>
@@ -22,33 +32,19 @@
             <h1>Reserve</h1>
             <div class="change-restaurant">
               <p>a table at</p>
-              <select name="restaurant">
-                <option
-                  value="chakan"
-                  onchange="document.getElementById('particulars').style.visibility='hidden'"
-                >
+              <select name="restaurant" onchange="hideParticulars()">
+                <option value="chakan">
                   <span lang="jp">茶館</span> Chakan
                 </option>
-                <option
-                  value="hizure"
-                  onchange="document.getElementById('particulars').style.visibility='hidden'"
-                >
+                <option value="hizure">
                   <span lang="jp">昼膳</span> Hizure
                 </option>
-                <option
-                  value="banen"
-                  onchange="document.getElementById('particulars').style.visibility='hidden'"
-                >
-                  <span lang="jp">晩宴</span> Banen
-                </option>
+                <option value="banen"><span lang="jp">晩宴</span> Banen</option>
               </select>
             </div>
           </div>
           <div id="right">
-            <table
-              id="parameters"
-              onchange="document.getElementById('particulars').style.visibility='hidden'"
-            >
+            <table id="parameters" onchange="hideParticulars()">
               <tr>
                 <th scope="col">for</th>
                 <th scope="col">on</th>
@@ -73,28 +69,49 @@
         </section>
         <section class="center">
           <input
+          id="check"
             type="button"
             value="Check Availability"
-            onclick="document.getElementById('particulars').style.visibility='visible'"
+            onclick="showParticulars();"
           />
         </section>
         <!-- will change depending on whether or not reservation is found -->
         <section id="particulars">
           <div id="heading">
             <p>
+              A table has been found! <br />
               Before confirming your registration, please fill out the
               following:
             </p>
           </div>
-          <div class="left-col">
-            <label for="mr"> Mr</label>
-            <input type="radio" name="salutation" id="mr" value="mr" required />
-            <label for="ms"> Ms</label>
-            <input type="radio" name="salutation" id="ms" value="ms" required />
-            <label for="mx"> Mx</label>
-            <input type="radio" name="salutation" id="mx" value="mx" required />
-            <br />
-            <input
+            <div id="radio">
+              <label for="mr"> Mr</label>
+              <input
+                type="radio"
+                name="salutation"
+                id="mr"
+                value="mr"
+                required
+              />
+              <label for="ms"> Ms</label>
+              <input
+                type="radio"
+                name="salutation"
+                id="ms"
+                value="ms"
+                required
+              />
+              <label for="mx"> Mx</label>
+              <input
+                type="radio"
+                name="salutation"
+                id="mx"
+                value="mx"
+                required
+              />
+            </div>
+            <div id="inline-block">
+              <input
               name="first-name"
               autocomplete="given-name"
               placeholder="First Name"
@@ -116,18 +133,12 @@
               pattern="[a-z0-9]+\@[a-z]+\.[a-z]+"
               required
             />
-          </div>
-          <div class="right-col">
-            <input
-              type="number"
-              name="contact"
-              placeholder="Phone Number"
-              pattern="([0-9]{8}){1}"
-            />
+            </div>
             <br />
-            <!-- will be a submit button but for now will be a link -->
-            <a href="confirmed.html"> Reserve </a>
-          </div>
+            <div class="center">
+              <!-- will be a submit button but for now will be a link -->
+              <a href="confirmed.html"> Reserve </a>
+            </div>
         </section>
         <section id="no-slot">
           <p>
