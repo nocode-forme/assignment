@@ -4,11 +4,11 @@ body {
 }
 
 main {
-  height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 #left,
@@ -22,19 +22,21 @@ main {
 
 .center {
   display: flex;
-  width: 100%;
   justify-content: center;
+  width: 100%;
   margin-top: 100px;
 }
 
-.center input, #particulars a {
+.center input,
+#particulars a {
   padding: 15px;
   background-color: white;
-  border: 0px;
+  border: none;
   font-weight: bold;
 }
 
-.center input:hover {
+.center input:hover,
+#particulars a:hover {
   background-color: black;
   border-radius: 10px;
   color: white;
@@ -46,10 +48,10 @@ main {
 }
 
 #heading {
-  margin: 50px 0px 30px 0px;
-  width: 100%;
   display: flex;
   justify-content: center;
+  margin: 50px 0 30px;
+  width: 100%;
 }
 
 h1,
@@ -72,9 +74,7 @@ th {
 
 input,
 select {
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border: none;
   border-bottom: 1px solid lightgrey;
 }
 
@@ -85,33 +85,28 @@ select {
 
 #particulars {
   height: 100%;
-  margin: 0px 200px;
+  margin: 0 200px;
 }
 
 #inline-block {
-  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 50px 0px;
+  width: 100%;
+  margin: 50px 0;
 }
 
 #inline-block input {
   flex-direction: row;
 }
 
-#radio, #particulars input {
-  margin: 5px 0px;
+#radio,
+#particulars input {
+  margin: 5px 0;
 }
 
 table {
   position: relative;
-  top: 40px
-}
-
-#particulars a:hover {
-  background-color: black;
-  border-radius: 10px;
-  color: white;
+  top: 40px;
 }
 
 #particulars a {
