@@ -20,6 +20,11 @@ main {
   float: right;
 }
 
+#particulars,
+#no-slot {
+  visibility: hidden;
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -28,26 +33,27 @@ main {
 }
 
 .center input,
-#particulars a {
+input[type="submit"] {
   padding: 15px;
   background-color: white;
   border: none;
   font-weight: bold;
 }
 
+input[type="submit"] {
+  position: relative;
+  text-decoration: none;
+  bottom: 100px;
+}
+
 .center input:hover,
-#particulars a:hover {
+input[type="submit"]:hover {
   background-color: black;
   border-radius: 10px;
   color: white;
 }
 
-#particulars,
-#no-slot {
-  visibility: hidden;
-}
-
-#heading {
+#text {
   display: flex;
   justify-content: center;
   margin: 50px 0 30px;
@@ -88,29 +94,23 @@ select {
   margin: 0 200px;
 }
 
-#inline-block {
+#inline {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin: 50px 0;
 }
 
-#inline-block input {
+#inline input {
   flex-direction: row;
 }
 
 #radio,
 #particulars input {
-  margin: 5px 0;
+  margin: 5px 15px;
 }
 
 table {
   position: relative;
   top: 40px;
-}
-
-#particulars a {
-  position: relative;
-  bottom: 100px;
-  text-decoration: none;
 }
