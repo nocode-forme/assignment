@@ -12,13 +12,13 @@ header {
 
 header nav {
   position: relative;
-  height: 100%;
   justify-content: space-around;
+  height: 100%;
 }
 
 header nav ul {
-  display: inline-flex;
   height: 100%;
+  display: inline-flex;
   align-items: center;
 }
 
@@ -35,6 +35,7 @@ header button {
   background-color: white;
   border: none;
   font-weight: bold;
+  font-family: PLayfair Display;
 }
 
 header button:hover {
@@ -44,6 +45,5 @@ header button:hover {
 }
 
 li img {
- width: 200px;
+  width: 170px;
 }
-

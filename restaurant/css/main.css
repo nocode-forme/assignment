@@ -7,7 +7,7 @@
 body {
   height: 300px;
   text-align: center;
-  font-family: Helvetica-Neue, sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 section.app-showcase,
@@ -19,7 +19,7 @@ footer {
 main {
   position: relative;
   width: 100%;
-  top: 100px;
+  top: 250px;
   margin: 0 auto;
   font-size: 130%;
 }
@@ -32,12 +32,19 @@ h1 {
 
 h1 + p {
   padding: 0 50px;
+  font-size: 18px;
+}
+
+h1,
+h2 {
+  font-family: Playfair Display;
 }
 
 p.small-text {
   font-size: 15px;
   font-style: italic;
-  margin: 100px 0px;
+  font-family: Playfair Display;
+  margin: 200px 0px;
 }
 
 .description {
@@ -49,12 +56,7 @@ p.small-text {
 }
 
 img {
-  width: 100%;
-}
-
-.image {
-  width: 900px;
-  margin: 0px 50px;
+  width: 90%;
 }
 
 .text {
@@ -63,7 +65,12 @@ img {
 }
 
 .text p {
+  font-size: 17px;
   padding: 30px 0px;
+}
+
+h2 span[lang="jp"] {
+  font-family: Noto Serif JP;
 }
 
 .afternoon-tea .text,
@@ -85,7 +92,7 @@ img {
   border: 1px solid black;
   border-radius: 10px;
   padding: 17px 30px;
-  margin-top: 15px;
+  margin-top: 50px;
   font-weight: bold;
   text-decoration: none;
 }
@@ -97,16 +104,16 @@ img {
 }
 
 article.afternoon-tea .description {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-  rgba(0, 0, 0, 0.5)), url(../assets/bed-of-roses.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../assets/bed-of-roses.png);
 }
 
 article.lunch .description {
-  background-image:linear-gradient(rgba(0, 0, 0, 0.5),
-  rgba(0, 0, 0, 0.5)), url(../assets/lunch-diner.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../assets/lunch-diner.png);
 }
 
 article.dinner .description {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-  rgba(0, 0, 0, 0.5)), url(../assets/dinner-diner.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../assets/dinner-diner.png);
 }
