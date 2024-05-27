@@ -9,6 +9,7 @@ body {
   text-align: center;
   font-family: Helvetica-Neue, sans-serif;
 }
+
 section.app-showcase,
 footer {
   position: relative;
@@ -50,11 +51,11 @@ p.small-text {
 img {
   width: 100%;
 }
+
 .image {
   width: 900px;
   margin: 0px 50px;
 }
-
 
 .text {
   width: 70%;

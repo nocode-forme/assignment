@@ -32,18 +32,19 @@ main {
   margin-top: 100px;
 }
 
+input[type="submit"] {
+  position: relative;
+  text-decoration: none;
+  bottom: 100px;
+}
+
+
 .center input,
 input[type="submit"] {
   padding: 15px;
   background-color: white;
   border: none;
   font-weight: bold;
-}
-
-input[type="submit"] {
-  position: relative;
-  text-decoration: none;
-  bottom: 100px;
 }
 
 .center input:hover,

@@ -4,21 +4,50 @@
     <meta charset="UTF-8" />
     <title>Restaurants - Royal Pavillion Tokyo</title>
     <link rel="stylesheet" href="../../css/main-header.css" />
+    <link rel="stylesheet" href="../../css/main-sidebar.css" />
     <link rel="stylesheet" href="../../css/main.css" />
   </head>
   <body>
+    <script>
+      var isShown = false;
+      function toggleVisibility() {
+        if (isShown == false) {
+          document.getElementById("sidebar").style.visibility = "visible";
+          isShown = true;
+        } else {
+          document.getElementById("sidebar").style.visibility = "hidden";
+          isShown = false;
+        }
+      }
+    </script>
     <header>
-      <!-- insert logo here -->
       <nav>
         <ul>
-          <li>Suites</li>
-          <li>Dining</li>
-          <li>Events</li>
-          <li>Experiences</li>
-          <li id="book-now">Book Now</li>
+          <li
+            onclick="toggleVisibility()"
+          >
+            ☰ Menu
+          </li>
+          <li>
+            <img
+              src="../../assets/icons/logo.png"
+              alt="Royal Pavillion Tokyo"
+            />
+          </li>
+          <li><button>Check Availability</button></li>
         </ul>
       </nav>
     </header>
+    <nav id="sidebar">
+      <ul>
+        <li><a href="#rooms-section">Rooms</a></li>
+        <li><a href="#about-us-section">About Us</a></li>
+        <li><a href="#offers-section">Offers</a></li>
+        <li><a href="#event-reservation-section">Event Reservation</a></li>
+        <li><a href="#facilities-section">Facilities</a></li>
+        <li><a href="#contact-us-section">Contact Us</a></li>
+      </ul>
+    </nav>
     <main>
       <section class="intro">
         <h1>Dining</h1>
