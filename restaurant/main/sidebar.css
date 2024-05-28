@@ -1,15 +1,33 @@
 #sidebar {
-    position: fixed;
-    width: 300px;
-    height: 100vh;
-    z-index: 2;
-    visibility: hidden;
-    background-color: lightgray;
+  z-index: 2;
+  position: fixed;
+  bottom: 1px;
+  width: 300px;
+  height: 100vh;
+  visibility: hidden;
+  background-color: lightgray;
 }
 
-ul li {
-    text-align: left;
-    padding: 40px 50px;
+#sidebar ul {
+  position: relative;
+  top: 11px;
+  height: 100%;
 }
 
+#sidebar ul li {
+  text-align: left;
+  padding: 15px 50px;
+  font-family: Playfair Display;
+  color: white;
+  text-decoration: none;
+}
+
+#sidebar ul li a:hover {
+    color: white; 
+}
+
+
+#sidebar ul li a:visited {
+    color: white;   
+}
 

@@ -23,21 +23,18 @@
   </head>
   <body>
     <script>
-      var isShown = false;
-      function toggleVisibility() {
-        if (isShown == false) {
+      function toggleVisibility(shown) {
+        if (shown == false) {
           document.getElementById("sidebar").style.visibility = "visible";
-          isShown = true;
         } else {
           document.getElementById("sidebar").style.visibility = "hidden";
-          isShown = false;
         }
       }
     </script>
     <header>
       <nav>
         <ul>
-          <li onclick="toggleVisibility()">☰ Menu</li>
+          <li onclick="toggleVisibility(false)">☰</li>
           <li>
             <img
               src="../assets/icons/logo.png"
@@ -50,6 +47,7 @@
     </header>
     <nav id="sidebar">
       <ul>
+        <li onclick="toggleVisibility(true)">☰</li>
         <li><a href="#rooms-section">Rooms</a></li>
         <li><a href="#about-us-section">About Us</a></li>
         <li><a href="#offers-section">Offers</a></li>
