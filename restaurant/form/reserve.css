@@ -4,15 +4,32 @@ body {
 }
 
 main {
+  height: 100%;
+  width: 50%;
+  top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
 }
 
-h1, h2 {
+h1,
+p {
+  display: inline-block;
+  text-align: center;
+}
+
+h1,
+tr,
+#check,
+input[type="submit"] {
   font-family: Playfair Display;
+}
+
+h1 {
+  font-size: 80px;
 }
 
 #left,
@@ -36,43 +53,13 @@ h1, h2 {
   margin-top: 100px;
 }
 
-input[type="submit"] {
+table {
   position: relative;
-  text-decoration: none;
-  bottom: 100px;
+  top: 40px;
 }
 
-
-.center input,
-input[type="submit"] {
-  padding: 15px;
-  background-color: white;
-  border: none;
-  font-weight: bold;
-}
-
-.center input:hover,
-input[type="submit"]:hover {
-  background-color: black;
-  border-radius: 10px;
-  color: white;
-}
-
-#text {
-  display: flex;
-  justify-content: center;
-  margin: 50px 0 30px;
-  width: 100%;
-}
-
-h1,
-p {
-  display: inline-block;
-  text-align: center;
-}
-
-h1 {
-  font-size: 80px;
+td {
+  padding: 10px;
 }
 
 p,
@@ -94,9 +81,39 @@ select {
   font-size: 20px;
 }
 
+input[type="submit"] {
+  position: relative;
+  text-decoration: none;
+  bottom: 100px;
+}
+
+.center input,
+input[type="submit"] {
+  padding: 15px;
+  background-color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.center input:hover,
+input[type="submit"]:hover {
+  background-color: black;
+  border-radius: 10px;
+  color: white;
+}
+
+#text {
+  display: flex;
+  justify-content: center;
+  margin: 50px 30px;
+}
+
 #particulars {
   height: 100%;
-  margin: 0 200px;
+  margin: 0 100px;
+  border: 1px solid #d4af37;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 #inline {
@@ -113,9 +130,4 @@ select {
 #radio,
 #particulars input {
   margin: 5px 15px;
-}
-
-table {
-  position: relative;
-  top: 40px;
 }

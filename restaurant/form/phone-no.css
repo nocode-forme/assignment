@@ -3,6 +3,18 @@
   padding: 0px;
 }
 
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  position: relative;
+  top: 10px;
+  width: 100px;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -12,6 +24,8 @@ body {
 
 main {
   height: 100%;
+  bottom: 50px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,29 +35,15 @@ h1 {
   font-family: Playfair Display;
 }
 
-section,
-aside {
+section {
   flex-direction: row;
-  padding: 0px 100px;
+  padding: 75px 50px;
+  border: 1px solid #d4af37;
+  border-radius: 15px;
 }
 
 section {
   width: 30s0px;
-}
-
-aside {
-  position: relative;
-  left: 200px;
-  padding-left: 0px;
-  width: 50%;
-  height: 110%;
-  justify-self: right;
-}
-
-img {
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.4);
 }
 
 h1 {
@@ -54,6 +54,12 @@ p {
   margin-top: 10px;
   margin-bottom: 50px;
   font-size: 25px;
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }
 
 input {
@@ -78,6 +84,7 @@ input[type="button"] {
   background-color: black;
   color: white;
   font-weight: bold;
+  font-family: Playfair Display;
 }
 
 input[type="button"]:hover {

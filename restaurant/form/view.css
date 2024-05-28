@@ -1,0 +1,71 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  font-size: 20px;
+}
+
+main {
+  position: relative;
+  top: 15%;
+  width: 90%;
+  height: 50%;
+  margin: 0px auto;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+h1,
+h2,
+strong {
+  font-family: Playfair Display;
+}
+
+h1 {
+  width: 100%;
+  text-align: left;
+  font-size: 70px;
+  font-style: italic;
+  color: #d4af37;
+  background-color: black;
+  padding: 40px;
+  margin-bottom: 70px;
+}
+
+span {
+  font-family: Noto Serif JP;
+}
+
+.reservation {
+  height: 270px;
+  display: block;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  padding: 50px;
+  margin: 20px 20px;
+}
+
+.reservation h2 {
+  margin-bottom: 10px;
+}
+
+.reservation a {
+  position: relative;
+  top: 40px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  padding: 15px 30px;
+  font-weight: bold;
+  font-family: Playfair Display;
+  text-decoration: none;
+}
+
+.reservation a:hover {
+  background-color: white;
+  color: black;
+}
