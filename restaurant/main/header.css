@@ -1,53 +1,123 @@
-/* no space on the sides */
+/* Sidebar Styling */
+#menu-toggle {
+  display: none;
+}
 
-header {
+.menu-icon {
+  display: block;
+  padding: 1rem;
+  font-size: 25px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
   position: fixed;
-  width: 100vw;
-  height: 100px;
-  top: -0.0001px;
-  z-index: 1;
-  background-color: white;
-  border-bottom: black 1px solid;
+  top: 0;
+  left: 0;
+  z-index: 1001;
 }
 
-header nav {
-  height: 100%;
-  justify-content: space-around;
-}
-
-header nav ul {
-  width: 100%;
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-header nav ul li {
+.sidebar {
+  position: fixed;
+  left: -300px;
+  top: 0;
   width: 250px;
-  list-style-type: none;
-  text-align: left;
-    padding: 40px 50px;
-}
-
-li:first-child{
-  font-size: 30px;
-}
-
-header button {
-  padding: 15px;
-  background-color: white;
-  border: none;
-  font-weight: bold;
-  font-family: PLayfair Display;
-}
-
-header button:hover {
-  background-color: black;
-  border-radius: 10px;
+  height: 100%;
+  background: #d4af37;
   color: white;
+  padding-top: 60px;
+  transition: left 0.3s;
+  z-index: 1000;
 }
 
-li img {
+#menu-toggle:checked + .menu-icon + .sidebar {
+  left: 0;
+}
+
+.sidebar ul {
+  background: #d4af37;
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 20px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Header Styling */
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  position: fixed;
+  transition: background-color 0.3s, height 0.3s;
+  z-index: 1000;
+}
+
+.header img {
+  position: relative;
   width: 100px;
+  bottom: 15px;
+}
+.header-logo-container {
+  display: none;
+}
+
+.header.sticky {
+  background-color: rgb(0, 0, 0);
+  height: 80px;
+  color: black;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header.sticky .header-logo-container {
+  display: block;
+}
+
+.header.sticky .hotel-name,
+.header.sticky .hotel-tagline {
+  display: none;
+}
+
+.check-availability {
+  padding: 10px 30px;
+  background: transparent;
+  color: rgb(0, 0, 0);
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Playfair Display", serif;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.header.sticky .check-availability {
+  color: black;
+  border-color: black;
+}
+
+.check-availability:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-color: #d4af37;
 }

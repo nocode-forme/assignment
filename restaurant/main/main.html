@@ -18,44 +18,25 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="header.css" />
-    <link rel="stylesheet" href="sidebar.css" />
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <script>
-      function toggleVisibility(shown) {
-        if (shown == false) {
-          document.getElementById("sidebar").style.visibility = "visible";
-        } else {
-          document.getElementById("sidebar").style.visibility = "hidden";
-        }
-      }
-    </script>
-    <header>
-      <nav>
-        <ul>
-          <li onclick="toggleVisibility(false)">☰</li>
-          <li>
-            <img
-              src="../assets/icons/logo.png"
-              alt="Royal Pavillion Tokyo"
-            />
-          </li>
-          <li><button>Check Availability</button></li>
-        </ul>
-      </nav>
-    </header>
-    <nav id="sidebar">
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <nav id="sidebar" class="sidebar">
       <ul>
-        <li onclick="toggleVisibility(true)">☰</li>
         <li><a href="#rooms-section">Rooms</a></li>
-        <li><a href="#about-us-section">About Us</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
         <li><a href="#offers-section">Offers</a></li>
         <li><a href="#event-reservation-section">Event Reservation</a></li>
         <li><a href="#facilities-section">Facilities</a></li>
         <li><a href="#contact-us-section">Contact Us</a></li>
       </ul>
     </nav>
+    <header class="header" id="header-section">
+      <img src="../assets/icons/logo.png" />
+      <button class="check-availability">Check Availability</button>
+    </header>
     <main>
       <section class="intro">
         <h1>Dining</h1>

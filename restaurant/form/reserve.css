@@ -11,6 +11,10 @@ main {
   width: 100%;
 }
 
+h1, h2 {
+  font-family: Playfair Display;
+}
+
 #left,
 #right {
   display: inline-block;
