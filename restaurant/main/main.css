@@ -29,7 +29,7 @@ footer {
 main {
   position: relative;
   width: 100%;
-  top: 180px;
+  top: 100px;
   margin: 0 auto;
   font-size: 130%;
 }
@@ -58,6 +58,10 @@ p.small-text {
   margin: 200px 0px;
 }
 
+p strong {
+  font-size: 25px;
+}
+
 .description {
   height: 600px;
   color: white;
@@ -77,10 +81,11 @@ img {
 
 .text p {
   font-size: 17px;
+  line-height: 25px;
   padding: 30px 0px;
 }
 
-h2 span[lang="jp"] {
+span[lang="jp"] {
   font-family: Noto Serif JP;
 }
 

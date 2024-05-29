@@ -97,6 +97,8 @@ select {
   border: 1px solid #d4af37;
   padding: 15px;
   border-radius: 10px;
+  position: relative;
+  bottom: 100px;
 }
 
 
