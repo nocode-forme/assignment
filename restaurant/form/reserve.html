@@ -9,15 +9,21 @@
   <body>
     <script>
       function hideParticulars() {
-        document.getElementById("particulars").style.visibility = "hidden";
-        document.getElementById("check").style.visibility = "visible";
+        document.getElementById("particulars").style.display = "none";
+        document.getElementById("check").style.display = "block";
       }
+
       function showParticulars() {
-        document.getElementById("particulars").style.visibility = "visible";
-        document.getElementById("check").style.visibility = "hidden";
+        date = document.getElementById("date");
+        time = document.getElementById("time");
+        console.log(date, time);
+        if (date != null && time != null) {
+          document.getElementById("particulars").style.display = "block";
+          document.getElementById("details").style.display = "none";
+        }
       }
     </script>
-     <header>
+    <header>
       <nav>
         <ul>
           <li><a href="reserve.html">Reserve</a></li>
@@ -27,138 +33,134 @@
       <img src="../assets/icons/logo.png" />
     </header>
     <main>
-      <form>
-        <section id="details">
-          <div id="left">
-            <h1>Reserve</h1>
-            <div class="change-restaurant">
-              <p>a table at</p>
-              <select name="restaurant" onchange="hideParticulars()">
-                <option value="chakan">
-                  <span lang="jp">茶館</span> Chakan
-                </option>
-                <option value="hizure">
-                  <span lang="jp">昼膳</span> Hizure
-                </option>
-                <option value="banen"><span lang="jp">晩宴</span> Banen</option>
-              </select>
-            </div>
+      <form method="get" id="details">
+        <div>
+          <h1>Reserve</h1>
+          <div class="change-restaurant">
+            <p>a table at</p>
+            <select name="restaurant" onchange="hideParticulars()">
+              <option value="chakan"><span lang="jp">茶館</span> Chakan</option>
+              <option value="hizure"><span lang="jp">昼膳</span> Hizure</option>
+              <option value="banen"><span lang="jp">晩宴</span> Banen</option>
+            </select>
           </div>
-          <div id="right">
-            <table id="parameters" onchange="hideParticulars()">
-              <tr>
-                <th scope="col">for</th>
-                <th scope="col">on</th>
-                <th scope="col">at</th>
-              </tr>
-              <tr>
-                <!-- will progress to design in the figma but for now like this first -->
-                <td>
-                  <input
-                    type="number"
-                    name="persons"
-                    value="1"
-                    min="1"
-                    max="8"
-                  />
-                </td>
-                <td><input type="date" name="date" /></td>
-                <td>
-                  <select name="time">
-                    <option value="11:00"> 11.00am </option>
-                    <option value="11:30"> 11.30am </option>
-                    <option value="12:00"> 12.00pm </option>
-                    <option value="12:30"> 12.30pm </option>
-                    <option value="13:00"> 1.00pm </option>
-                    <option value="13:30"> 1.30pm </option>
-                    <option value="14:00"> 2.00pm </option>
-                    <option value="14:30"> 2.30pm </option>
-                    <option value="15:00"> 3.00pm </option>
-                    <option value="15:30"> 3.30pm </option>
-                    <option value="16:00"> 4.00pm </option>
-                    <option value="16:30"> 4.30pm </option>
-                    <option value="17:00"> 5.00pm </option>
-                    <option value="17:30"> 5.30pm </option>
-                    <option value="18:00"> 6.00pm </option>
-                    <option value="18:30"> 6.30pm </option>
-                    <option value="19:00"> 7.00pm </option>
-                    <option value="19:30"> 7.30pm </option>
-                    <option value="20:00"> 8.00pm </option>
-                    <option value="20:30"> 8.30pm </option>
-                    <option value="21:00"> 9.00pm </option>
-                    <option value="21:30"> 9.30pm </option>
-                  </select>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </section>
+        </div>
+        <div>
+          <table id="parameters" onchange="hideParticulars()">
+            <tr>
+              <th scope="col">for</th>
+              <th scope="col">on</th>
+              <th scope="col">at</th>
+            </tr>
+            <tr>
+              <!-- will progress to design in the figma but for now like this first -->
+              <td>
+                <input
+                  type="number"
+                  name="persons"
+                  value="1"
+                  min="1"
+                  max="8"
+                  required
+                />
+              </td>
+              <td>
+                <input type="date" name="date" id="date" required />
+              </td>
+              <td>
+                <select name="time" id="time" required onchange="set()">
+                  <option value="11:00">11.00am</option>
+                  <option value="11:30">11.30am</option>
+                  <option value="12:00">12.00pm</option>
+                  <option value="12:30">12.30pm</option>
+                  <option value="13:00">1.00pm</option>
+                  <option value="13:30">1.30pm</option>
+                  <option value="14:00">2.00pm</option>
+                  <option value="14:30">2.30pm</option>
+                  <option value="15:00">3.00pm</option>
+                  <option value="15:30">3.30pm</option>
+                  <option value="16:00">4.00pm</option>
+                  <option value="16:30">4.30pm</option>
+                  <option value="17:00">5.00pm</option>
+                  <option value="17:30">5.30pm</option>
+                  <option value="18:00">6.00pm</option>
+                  <option value="18:30">6.30pm</option>
+                  <option value="19:00">7.00pm</option>
+                  <option value="19:30">7.30pm</option>
+                  <option value="20:00">8.00pm</option>
+                  <option value="20:30">8.30pm</option>
+                  <option value="21:00">9.00pm</option>
+                  <option value="21:30">9.30pm</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
         <div class="center">
           <input
             id="check"
-            type="button"
+            type="submit"
             value="Check Availability"
             onclick="showParticulars();"
           />
         </div>
-        <!-- will change depending on whether or not reservation is found -->
-        <section id="particulars">
-          <div id="text">
-            <p>
-              A table has been found! <br />
-              Before confirming your registration, please fill out the
-              following:
-            </p>
-          </div>
-          <div id="radio">
-            <label for="mr"> Mr</label>
-            <input type="radio" name="salutation" id="mr" value="mr" required />
-            <label for="ms"> Ms</label>
-            <input type="radio" name="salutation" id="ms" value="ms" required />
-            <label for="mx"> Mx</label>
-            <input type="radio" name="salutation" id="mx" value="mx" required />
-          </div>
-          <div id="inline">
-            <input
-              name="first-name"
-              autocomplete="given-name"
-              placeholder="First Name"
-              required
-            />
-            <br />
-            <input
-              name="last-name"
-              autocomplete="family-name"
-              placeholder="Last Name"
-              required
-            />
-            <br />
-            <input
-              type="email"
-              autocomplete="email"
-              placeholder="Email"
-              name="email"
-              pattern="[a-z0-9]+\@[a-z]+\.[a-z]+"
-              required
-            />
-          </div>
-          <br />
-          <div class="center">
-            <input
-              type="submit"
-              value="Reserve"
-              onclick="window.location.replace('confirmed.html')"
-            />
-          </div>
-        </section>
-        <section id="no-slot">
-          <p>
-            Unfortunately, we have no slots available at the chosen date and
-            time. Please choose a different date and time, and check the
-            availability again!
-          </p>
-        </section>
       </form>
+      <form method="POST" id="particulars">
+        <div id="text">
+          <p>
+            A table has been found! <br />
+            Before confirming your registration, please fill out the following:
+          </p>
+        </div>
+        <div id="radio">
+          <label for="mr"> Mr</label>
+          <input type="radio" name="salutation" id="mr" value="mr" required />
+          <label for="ms"> Ms</label>
+          <input type="radio" name="salutation" id="ms" value="ms" required />
+          <label for="mx"> Mx</label>
+          <input type="radio" name="salutation" id="mx" value="mx" required />
+        </div>
+        <div id="inline">
+          <input
+            name="first-name"
+            autocomplete="given-name"
+            placeholder="First Name"
+            required
+          />
+          <br />
+          <input
+            name="last-name"
+            autocomplete="family-name"
+            placeholder="Last Name"
+            required
+          />
+          <br />
+          <input
+            type="email"
+            autocomplete="email"
+            placeholder="Email"
+            name="email"
+            pattern="[a-z0-9]+\@[a-z]+\.[a-z]+"
+            required
+          />
+        </div>
+        <br />
+        <div class="center">
+          <input
+            id="submit"
+            type="submit"
+            value="Reserve"
+            onclick="window.location.replace('confirmed.html')"
+          />
+        </div>
+      </form>
+      <section id="no-slot">
+        <p>
+          Unfortunately, we have no slots available at the chosen date and time.
+          Please choose a different date and time, and check the availability
+          again!
+        </p>
+      </section>
     </main>
   </body>
 </html>

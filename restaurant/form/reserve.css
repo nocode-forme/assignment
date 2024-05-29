@@ -5,14 +5,19 @@ body {
 
 main {
   height: 100%;
-  width: 50%;
-  top: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#details {
+  height: 50%;
+  width: 100%;
+  display: inherit;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 h1,
@@ -32,30 +37,20 @@ h1 {
   font-size: 80px;
 }
 
-#left,
-#right {
-  display: inline-block;
-}
-
-#right {
-  float: right;
+.center {
+  position: flex;
+  flex-basis: 75%;
+  justify-content: center;
 }
 
 #particulars,
 #no-slot {
-  visibility: hidden;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 100px;
+  display: none;
 }
 
 table {
   position: relative;
-  top: 40px;
+  top: 45px;
 }
 
 td {
@@ -77,30 +72,33 @@ select {
 }
 
 select {
-  width: 70%;
   font-size: 20px;
 }
 
-input[type="submit"] {
-  position: relative;
-  text-decoration: none;
-  bottom: 100px;
-}
-
-.center input,
-input[type="submit"] {
+#check,
+#submit {
   padding: 15px;
   background-color: white;
   border: none;
   font-weight: bold;
 }
 
-.center input:hover,
-input[type="submit"]:hover {
+#check:hover,
+#submit:hover {
   background-color: black;
   border-radius: 10px;
   color: white;
+  cursor: pointer;
 }
+
+#particulars {
+  height: max-content;
+  width: 40%;
+  border: 1px solid #d4af37;
+  padding: 15px;
+  border-radius: 10px;
+}
+
 
 #text {
   display: flex;
@@ -108,19 +106,12 @@ input[type="submit"]:hover {
   margin: 50px 30px;
 }
 
-#particulars {
-  height: 100%;
-  margin: 0 100px;
-  border: 1px solid #d4af37;
-  padding: 15px;
-  border-radius: 10px;
-}
-
 #inline {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 90%;
   margin: 50px 0;
+  flex-wrap: wrap;
 }
 
 #inline input {
