@@ -89,12 +89,12 @@ span[lang="jp"] {
   font-family: Noto Serif JP;
 }
 
-.afternoon-tea .text,
-.dinner .text {
+#afternoon-tea .text,
+#dinner .text {
   text-align: left;
 }
 
-.lunch .text {
+#lunch .text {
   text-align: right;
 }
 
