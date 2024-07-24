@@ -5,21 +5,9 @@
     <title>Reserve a Table</title>
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="reserve.css" />
+    <script src="reserve.js"></script>
   </head>
   <body>
-    <script>
-      function hideParticulars() {
-        document.getElementById("particulars").style.display = "none";
-        document.getElementById("check").style.display = "block";
-      }
-
-      function showParticulars() {
-        if (date != null && time != null) {
-          document.getElementById("particulars").style.display = "block";
-          document.getElementById("details").style.display = "none";
-        }
-      }
-    </script>
     <header>
       <nav>
         <ul>
@@ -30,153 +18,67 @@
       <img src="../assets/icons/logo.png" />
     </header>
     <main>
-      <form method="get" id="details">
-        <div id="above">
-          <h1>Reserve</h1>
-          <div id="change-restaurant">
-            <p>a table at</p>
-            <select name="restaurant" onchange="hideParticulars()">
+      <form method="post">
+        <section>
+          <div class="inline">
+            <h1>Reserve at:</h1>
+            <select name="restaurant" required onchange="hideShown()">
               <option value="chakan"><span lang="jp">茶館</span> Chakan</option>
               <option value="hizure"><span lang="jp">昼膳</span> Hizure</option>
               <option value="banen"><span lang="jp">晩宴</span> Banen</option>
             </select>
           </div>
-          <div id="parameters">
-            <table onchange="hideParticulars()">
-              <tr>
-                <th scope="col">for<span class="required">*</span></th>
-                <th scope="col">on<span class="required">*</span></th>
-                <th scope="col">at<span class="required">*</span></th>
-              </tr>
-              <tr>
-                <!-- will progress to design in the figma but for now like this first -->
-                <td>
-                  <input
-                    type="number"
-                    name="persons"
-                    value="1"
-                    min="1"
-                    max="8"
-                  />
-                </td>
-                <td>
-                  <input type="date" name="date" id="date" required />
-                </td>
-                <td>
-                  <select name="time" id="time" required onchange="set()">
-                    <option value="11:00">11.00am</option>
-                    <option value="11:30">11.30am</option>
-                    <option value="12:00">12.00pm</option>
-                    <option value="12:30">12.30pm</option>
-                    <option value="13:00">1.00pm</option>
-                    <option value="13:30">1.30pm</option>
-                    <option value="14:00">2.00pm</option>
-                    <option value="14:30">2.30pm</option>
-                    <option value="15:00">3.00pm</option>
-                    <option value="15:30">3.30pm</option>
-                    <option value="16:00">4.00pm</option>
-                    <option value="16:30">4.30pm</option>
-                    <option value="17:00">5.00pm</option>
-                    <option value="17:30">5.30pm</option>
-                    <option value="18:00">6.00pm</option>
-                    <option value="18:30">6.30pm</option>
-                    <option value="19:00">7.00pm</option>
-                    <option value="19:30">7.30pm</option>
-                    <option value="20:00">8.00pm</option>
-                    <option value="20:30">8.30pm</option>
-                    <option value="21:00">9.00pm</option>
-                    <option value="21:30">9.30pm</option>
-                  </select>
-                </td>
-              </tr>
-            </table>
+          <div class="inline">
+            <h2>on:</h2>
+            <input name="date" type="date" required onchange="hideShown()"/>
           </div>
-        </div>
-        <div class="center">
-          <div id="availability">
+          <div class="inline">
+            <h2>at:</h2>
+            <input name="time" type="time" required onchange="hideShown()"/>
+          </div>
+          <p id="availability"></p>
+          <button style="margin-top: 25px" onclick="showHidden()">
+            Check Availability
+          </button>
+        </section>
+        <hr class="hidden" />
+        <section class="hidden">
+          <div class="param">
+            <label for="salut"
+              >Salutation: <span class="required">*</span></label
+            >
+            <select id="salut">
+              required
+              <option value="Mr">Mr</option>
+              <option value="Ms">Ms</option>
+            </select>
+          </div>
+          <div class="param">
+            <label for="first-name"
+              >First Name: <span class="required">*</span></label
+            >
             <input
-              id="check"
-              type="submit"
-              value="Check Availability"
-              onclick="showParticulars();"
+              id="first-name"
+              name="first-name"
+              autocomplete="first-name"
+              required
             />
           </div>
+          <div class="param">
+            <label for="last-name"
+              >Last Name: <span class="required">*</span></label
+            >
+            <input id="last-name" name="last-name" required />
+          </div>
+          <div class="param">
+            <label for="email">Email: <span class="required">*</span></label>
+            <input id="email" name="email" autocomplete="email" required />
+          </div>
+        </section>
+        <div onclick="window.location.replace('confirmed.html')">
+          <input id="submit" class="hidden" type="submit" />
         </div>
       </form>
-      <form method="post" id="particulars">
-        <div id="text">
-          <p>
-            A table has been found! <br />
-            Before confirming your registration, please fill out the following:
-          </p>
-        </div>
-        <div id="radio">
-          <div>
-            <label for="mr"> Mr<span class="required">*</span></label>
-            <input type="radio" name="salutation" id="mr" value="mr" required />
-          </div>
-          <div>
-            <label for="ms"> Ms<span class="required">*</span></label>
-            <input type="radio" name="salutation" id="ms" value="ms" required />
-          </div>
-          <div>
-            <label for="mx"> Mx<span class="required">*</span></label>
-            <input type="radio" name="salutation" id="mx" value="mx" required />
-          </div>
-        </div>
-        <div class="inline">
-          <label for="first-name"
-            >First Name<span class="required">*</span></label
-          >
-          <input
-            id="first-name"
-            name="first-name"
-            autocomplete="given-name"
-            required
-          />
-        </div>
-        <div class="inline">
-          <label for="last-name"
-            >Last Name<span class="required">*</span></label
-          >
-          <input
-            id="last-name"
-            name="last-name"
-            autocomplete="family-name"
-            required
-          />
-        </div>
-
-        <div class="inline">
-          <label for="email">Email<span class="required">*</span></label>
-          <input
-            id="email"
-            type="email"
-            autocomplete="email"
-            name="email"
-            pattern="[a-z0-9]+\@[a-z]+\.[a-z]+"
-            required
-          />
-        </div>
-
-        <div class="center">
-          <div id="confirm" style="margin-top: 30px;">
-            <input
-              id="submit"
-              type="submit"
-              value="Reserve"
-              onclick="window.location.replace('confirmed.html')"
-            />
-          </div>
-        </div>
-      </form>
-      <section id="no-slot">
-        <p>
-          Unfortunately, we have no slots available at the chosen date and time.
-          Please choose a different date and time, and check the availability
-          again!
-        </p>
-      </section>
     </main>
   </body>
 </html>

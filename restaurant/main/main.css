@@ -118,17 +118,17 @@ span[lang="jp"] {
   color: black;
 }
 
-article.afternoon-tea .description {
+article#afternoon-tea .description {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../assets/bed-of-roses.png);
 }
 
-article.lunch .description {
+article#lunch .description {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../assets/lunch-diner.png);
 }
 
-article.dinner .description {
+article#dinner .description {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../assets/dinner-diner.png);
 }

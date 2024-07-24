@@ -7,83 +7,75 @@ body {
   width: 100vw;
   height: 100vh;
   font-size: 1.3em;
+  font-family: Playfair Display;
 }
 
 main {
+  width: 100%;
+  height: 90%;
   display: flex;
-  width: 100vw;
-  height: 80%;
-  justify-content: center;
   align-items: center;
-}
-
-h1,
-.change-restaurant p,
-table {
-  font-family: Playfair Display;
+  justify-content: center;
 }
 
 form {
-  padding: 75px 50px;
+  width: 60%;
+  display: inherit;
+  flex-direction: column;
+
+  /* Border around form */
   border: 1px solid #d4af37;
-  border-radius: 15px;
+  border-radius: 10px;
+  padding: 100px;
 }
 
-#details {
-  width: 70%;
-}
-
-#above {
-  width: 80%;
-  display: inherit;
-  justify-content: space-between;
-}
-
-#availability input,
-#submit {
-  width: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 15px;
-  background-color: black;
-  font-weight: bold;
-  font-family: Playfair Display;
-  font-size: 15px;
-  color: white;
-}
-
-#availability input:hover,
-#submit:hover {
-  cursor: pointer;
-  background-color: #a79820;
-}
-
-#change-restaurant p,
-#change-restaurant select {
-  display: inline-block;
-}
-
-#parameters {
-  display: inherit;
+hr {
+  width: 110%;
+  margin: 50px;
   position: relative;
-  bottom: 63px;
-  left: 76%;
+  right: 70px;
+
+  background-color: #d4af37;
 }
 
-#particulars,
-#no-slot {
-  display: none;
+select,
+input {
+  width: 200px;
+  opacity: 0.6;
+  border: none;
+  border-bottom: #d4af37 1px solid;
 }
 
-#radio {
+input#submit,
+button {
   width: 100%;
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: space-between;
+  padding: 10px;
+
+  color: #d4af37;
+  background-color: black;
+  font-family: Playfair Display;
+  font-weight: bold;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 10px;
+  opacity: 1;
 }
 
-#text {
-  margin-bottom: 50px;
+input#submit:hover,
+button:hover {
+  color: white;
+  background-color: #d4af37;
+  cursor: pointer;
+}
+
+h1,
+h2 {
+  font-style: italic;
+}
+.inline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .required {
@@ -91,13 +83,19 @@ form {
   color: red;
 }
 
-.inline {
+.param {
   display: flex;
   justify-content: space-between;
 }
 
-.inline input {
-  width: 70%;
-  border: none;
-  border-bottom: darkgray 1px solid;
+.hidden {
+  display: none;
+}
+
+#submit {
+  margin-top: 25px;
+}
+
+#availability {
+  display: none;
 }

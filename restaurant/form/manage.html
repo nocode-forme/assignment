@@ -2,8 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Manage Reservation</title>
+    <title>Reserve a Table</title>
     <link rel="stylesheet" href="header.css" />
+    <link rel="stylesheet" href="manage.css" />
+    <script src="cancel.js"></script>
+    <script src="reserve.js"></script>
+    <script src="change.js"></script>
   </head>
   <body>
     <header>
@@ -17,112 +21,74 @@
     </header>
     <main>
       <form method="post">
-        <h1>Manage Reservation</h1>
         <section>
-          <section id="details">
-            <h1>Reserve</h1>
-            <div class="change-restaurant">
-              <p>a table at</p>
-              <select name="restaurant">
-                <option value="chakan">
-                  <span lang="jp">茶館</span> Chakan
-                </option>
-                <option value="hizure">
-                  <span lang="jp">昼膳</span> Hizure
-                </option>
-                <option value="banen"><span lang="jp">晩宴</span> Banen</option>
-              </select>
-            </div>
-            <table id="parameters">
-              <tr>
-                <th scope="col">for</th>
-                <th scope="col">on</th>
-                <th scope="col">at</th>
-              </tr>
-              <tr>
-                <!-- will progress to design in the figma but for now like this first -->
-                <td>
-                  <input
-                    type="number"
-                    name="persons"
-                    value="1"
-                    min="1"
-                    max="8"
-                  />
-                </td>
-                <td><input type="date" name="date" /></td>
-                <td><input type="time" name="time" required /></td>
-              </tr>
-            </table>
-          </section>
-          <section>
-            <input type="button" value="Check Availability" />
-          </section>
-          <!-- will already have pre-exisitng data inside -->
-          <section id="particulars">
-            <div class="left-col">
-              <label for="mr"> Mr</label>
-              <input
-                type="radio"
-                name="salutation"
-                id="mr"
-                value="mr"
-                required
-              />
-              <label for="ms"> Ms</label>
-              <input
-                type="radio"
-                name="salutation"
-                id="ms"
-                value="ms"
-                required
-              />
-              <label for="mx"> Mx</label>
-              <input
-                type="radio"
-                name="salutation"
-                id="mx"
-                value="mx"
-                required
-              />
-              <br />
-
-              <input
-                name="first-name"
-                autocomplete="given-name"
-                placeholder="First Name"
-                required
-              />
-              <br />
-              <input
-                name="last-name"
-                autocomplete="family-name"
-                placeholder="Last Name"
-                required
-              />
-              <br />
-              <input
-                type="email"
-                autocomplete="email"
-                placeholder="Email"
-                name="email"
-                pattern="[a-z0-9]+\@[a-z]+\.[a-z]+"
-                required
-              />
-            </div>
-            <div class="right-col">
-              <!-- for now phone number accept only Singaporean hp no -->
-              <input
-                type="number"
-                name="contact"
-                placeholder="Phone Number"
-                pattern="([0-9]{8}){1}"
-              />
-              <!-- will be a submit button but for now will be a link -->
-              <a href="confirmed.html"> Reserve </a>
-            </div>
-          </section>
+          <div class="inline">
+            <h1>Reserve at:</h1>
+            <select name="restaurant" required onchange="hideShown()">
+              <option value="chakan"><span lang="jp">茶館</span> Chakan</option>
+              <option value="hizure"><span lang="jp">昼膳</span> Hizure</option>
+              <option value="banen"><span lang="jp">晩宴</span> Banen</option>
+            </select>
+          </div>
+          <div class="inline">
+            <h2>on:</h2>
+            <input name="date" type="date" required onchange="hideShown()" />
+          </div>
+          <div class="inline">
+            <h2>at:</h2>
+            <input name="time" type="time" required onchange="hideShown()" />
+          </div>
+          <div class="inline">
+            <button
+              class="margin-top"
+              id="cancel"
+              onclick="cancelReservation()"
+            >
+              Cancel
+            </button>
+            <button class="margin-top" onclick="showHidden()">
+              Check Availability
+            </button>
+          </div>
+          <p id="availability"></p>
         </section>
+        <hr class="hidden" />
+        <section class="hidden">
+          <div class="param">
+            <label for="salut"
+              >Salutation: <span class="required">*</span></label
+            >
+            <select id="salut">
+              required
+              <option value="Mr">Mr</option>
+              <option value="Ms">Ms</option>
+            </select>
+          </div>
+          <div class="param">
+            <label for="first-name"
+              >First Name: <span class="required">*</span></label
+            >
+            <input
+              id="first-name"
+              name="first-name"
+              autocomplete="first-name"
+              required
+            />
+          </div>
+          <div class="param">
+            <label for="last-name"
+              >Last Name: <span class="required">*</span></label
+            >
+            <input id="last-name" name="last-name" required />
+          </div>
+          <div class="param">
+            <label for="email">Email: <span class="required">*</span></label>
+            <input id="email" name="email" autocomplete="email" required />
+          </div>
+        </section>
+        <div onclick="changedReservation()">
+          <input id="submit" class="hidden margin-top" type="submit" />
+        </div>
       </form>
     </main>
   </body>
