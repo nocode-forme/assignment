@@ -68,4 +68,5 @@ span {
 .reservation a:hover {
   background-color: white;
   color: black;
+  border: 1px solid #d4af37;
 }

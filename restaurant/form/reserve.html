@@ -5,7 +5,7 @@
     <title>Reserve a Table</title>
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="reserve.css" />
-    <script src="reserve.js"></script>
+    <script src="display.js"></script>
   </head>
   <body>
     <header>
@@ -34,7 +34,25 @@
           </div>
           <div class="inline">
             <h2>at:</h2>
-            <input name="time" type="time" required onchange="hideShown()"/>
+            <div id="time" class="inline">
+              <select name="hour">
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+              </select>
+              <select name="minute">
+                <option value="00">00</option>
+                <option value="30">30</option>
+              </select>
+            </div>
           </div>
           <p id="availability"></p>
           <button style="margin-top: 25px" onclick="showHidden()">

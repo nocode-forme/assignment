@@ -46,6 +46,10 @@ input {
   border-bottom: #d4af37 1px solid;
 }
 
+#time select{
+  width: 100px;
+}
+
 input#submit,
 button {
   width: 100%;
