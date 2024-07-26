@@ -102,4 +102,8 @@ h2 {
 
 #availability {
   display: none;
+  color: red;
+  font-family: Playfair Display;  
+  margin-top: 25px;
+  text-align: center;
 }

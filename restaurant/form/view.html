@@ -5,6 +5,7 @@
     <title>View Reservations</title>
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="view.css" />
+    <script src="reservation-manager.js"></script>
   </head>
   <body>
     <header>
@@ -17,61 +18,22 @@
       <img src="../assets/icons/logo.png" />
     </header>
     <main>
-      <section class="intro">
-        <h1>My Reservations</h1>
-      </section>
-      <section>
-        <div class="reservation">
-          <h2>24th June 2024</h2>
-          <p>
-            for: <strong>Chakan <span lang="jp">茶館</span></strong>
-          </p>
-          <p>at: <strong>3.30pm</strong></p>
-          <div class="manage-button">
-            <a href="manage.html">Manage</a>
-          </div>
-        </div>
-        <div class="reservation">
-          <h2>25th June 2024</h2>
-          <p>
-            for: <strong>Chakan <span lang="jp">茶館</span></strong>
-          </p>
-          <p>at: <strong>6.30pm</strong></p>
-          <div class="manage-button">
-            <a href="manage.html">Manage</a>
-          </div>
-        </div>
-        <div class="reservation">
-          <h2>25th June 2024</h2>
-          <p>
-            for: <strong>Chakan <span lang="jp">茶館</span></strong>
-          </p>
-          <p>at: <strong>6.30pm</strong></p>
-          <div class="manage-button">
-            <a href="manage.html">Manage</a>
-          </div>
-        </div>
-        <div class="reservation">
-          <h2>25th June 2024</h2>
-          <p>
-            for: <strong>Chakan <span lang="jp">茶館</span></strong>
-          </p>
-          <p>at: <strong>6.30pm</strong></p>
-          <div class="manage-button">
-            <a href="manage.html">Manage</a>
-          </div>
-        </div>
-        <div class="reservation">
-          <h2>25th June 2024</h2>
-          <p>
-            for: <strong>Chakan <span lang="jp">茶館</span></strong>
-          </p>
-          <p>at: <strong>6.30pm</strong></p>
-          <div class="manage-button">
-            <a href="manage.html">Manage</a>
-          </div>
-        </div>
-      </section>
+      <h1>My Reservations</h1>
+      <section></section>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        getReservations();
+        var links = document.querySelectorAll("a[href='manage.html']");
+        for (i = 0; i < links.length; i++) {
+          links[i].removeEventListener()
+        }
+        for (i = 0; i < links.length; i++) {
+          links[i].addEventListener("click", () => {
+            set("managing", i-1);
+          });
+        }
+      });
+    </script>
   </body>
 </html>

@@ -46,9 +46,13 @@ input {
   border-bottom: #d4af37 1px solid;
 }
 
-#submit,
+#time select {
+  width: 100px;
+}
+
+input#submit,
 button {
-   width: 20vw; 
+  width: 100%;
   padding: 10px;
 
   color: #d4af37;
@@ -61,7 +65,7 @@ button {
   opacity: 1;
 }
 
-#submit:hover,
+input#submit:hover,
 button:hover {
   color: white;
   background-color: #d4af37;
@@ -102,13 +106,21 @@ h2 {
 }
 
 #cancel {
-background-color: red;
-color: white;
+  background-color: red;
+  color: white;
 }
 
 #cancel:hover {
-    background-color: white;
-    color: red;
-    cursor: pointer;
-    border: 1px solid red;
+  background-color: white;
+  color: red;
+  cursor: pointer;
+  border: 1px solid red;
+}
+
+#availability {
+  display: none;
+  color: red;
+  font-family: Playfair Display;
+  margin-top: 25px;
+  text-align: center;
 }

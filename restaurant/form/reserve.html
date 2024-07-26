@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="reserve.css" />
     <script src="display.js"></script>
+    <script src="reservation-manager.js"></script>
+    <script src="get-values.js"></script>
   </head>
   <body>
     <header>
@@ -18,7 +20,7 @@
       <img src="../assets/icons/logo.png" />
     </header>
     <main>
-      <form method="post">
+      <form id="form" method="post">
         <section>
           <div class="inline">
             <h1>Reserve at:</h1>
@@ -30,7 +32,7 @@
           </div>
           <div class="inline">
             <h2>on:</h2>
-            <input name="date" type="date" required onchange="hideShown()"/>
+            <input name="date" type="date" required onchange="hideShown()" />
           </div>
           <div class="inline">
             <h2>at:</h2>
@@ -55,9 +57,7 @@
             </div>
           </div>
           <p id="availability"></p>
-          <button style="margin-top: 25px" onclick="showHidden()">
-            Check Availability
-          </button>
+          <button style="margin-top: 25px">Check Availability</button>
         </section>
         <hr class="hidden" />
         <section class="hidden">
@@ -93,10 +93,41 @@
             <input id="email" name="email" autocomplete="email" required />
           </div>
         </section>
-        <div onclick="window.location.replace('confirmed.html')">
-          <input id="submit" class="hidden" type="submit" />
+        <div>
+          <input id="submit" class="hidden" value="Reserve" type="submit" />
         </div>
       </form>
     </main>
+    <script>
+      document.getElementById("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        var values = getValues();
+
+        setReservation(
+          values[4],
+          values[5],
+          values[6],
+          values[7],
+          `${values[1]}:${values[2]}`,
+          values[0],
+          values[3]
+        );
+        window.location = 'confirmed.html'
+      });
+
+      document.querySelector("button").addEventListener("click", () => {
+        var text = document.getElementById("availability");
+        var values = getValues();
+        if (
+          checkIfAvailable(`${values[1]}:${values[2]}`, values[0], values[3])
+        ) {
+          text.style.display = "none";
+          showHidden();
+        } else {
+          text.innerText = "No available slot was found.";
+          text.style.display = "block";
+        }
+      });
+    </script>
   </body>
 </html>

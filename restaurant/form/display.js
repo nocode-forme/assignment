@@ -2,7 +2,6 @@ var hidden = document.getElementsByClassName("hidden");
 var buttons = document.getElementsByTagName("button");
 
 function showHidden() {
-  console.log(buttons)
   for (i = 0; i < hidden.length; i++) {
     hidden[i].style.display = "block";
   }
