@@ -42,7 +42,7 @@ h1 {
 }
 
 h1 + p {
-  padding: 0 50px;
+  padding: 0px 50px;
   font-size: 18px;
 }
 
@@ -62,12 +62,14 @@ p strong {
   font-size: 25px;
 }
 
-.description {
-  height: 600px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media (min-width: 400px) {
+  .description {
+    height: 600px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 img {

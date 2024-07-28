@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="manage.css" />
     <script src="display.js"></script>
     <script src="reservation-manager.js"></script>
-    <script src="get-values.js"></script>
-    <script>
-      
-    </script>
+    <script src="values-manager.js"></script>
+    <script></script>
   </head>
   <body>
     <header>
@@ -67,7 +65,9 @@
             >
               Cancel Reservation
             </button>
-            <button id="check-availability" class="margin-top">Check Availability</button>
+            <button id="check-availability" class="margin-top">
+              Check Availability
+            </button>
           </div>
           <p id="availability"></p>
         </section>
@@ -110,51 +110,69 @@
         </div>
       </form>
     </main>
-    <script defer>
-      var reservation = retrieve("reservations")[retrieve("managing")];
+    <script>
+      function addZero(num) {
+        if (num < 10) {
+          return "0" + num;
+        } else {
+          return num;
+        }
+      }
+
+      var reservation = get("reservations")[get("managing")];
       var date = new Date(reservation["date"]);
       var dateString =
         date.getFullYear() +
-        "-0" +
-        parseFloat(date.getMonth() + 1) +
-        "-0" +
-        date.getDate();
-      document.querySelector('select[name="restaurant"]').value =
-        reservation["restaurant"];
-      document.querySelector('input[name="date"]').value = dateString;
-      document.querySelector('select[name="hour"]').value = reservation[
-        "time"
-      ].slice(0, 2);
-      document.querySelector('select[name="minute"]').value =
-        reservation["time"].slice(3);
-      document.querySelector('select[id="salut"]').value = reservation["salut"];
-      document.querySelector('input[name="first-name"]').value =
-        reservation["fname"];
-      document.querySelector('input[name="last-name"]').value =
-        reservation["lname"];
-      document.querySelector('input[name="email"]').value =
-        reservation["email"];
+        "-" +
+        addZero(date.getMonth() + 1) +
+        "-" +
+        addZero(date.getDate());
+      replaceValues();
+      
+      const oldTime = reservation["time"];
+      const oldDate = reservation["date"]
+      const oldRestaurant = reservation["restaurant"]
+      document
+        .getElementById("check-availability")
+        .addEventListener("click", () => {
+          var text = document.getElementById("availability");
+          var values = getValues();
+          if (
+            checkIfAvailable(`${values[1]}:${values[2]}`, values[0], values[3])
+          ) {
+            text.style.display = "none";
+            showHidden();
+          } else {
+            text.innerText = "No available slot was found.";
+            text.style.display = "block";
+          }
+        });
 
-      document.getElementById('check-availability').addEventListener("click", () => {
-        var text = document.getElementById("availability");
+      document.querySelector("button").addEventListener("click", async () => {
         var values = getValues();
-        if (
-          checkIfAvailable(`${values[1]}:${values[2]}`, values[0], values[3])
-        ) {
-          text.style.display = "none";
-          showHidden();
-        } else {
-          text.innerText = "No available slot was found.";
-          text.style.display = "block";
-        }
+        cancelReservation(`${values[1]}:${values[2]}`, values[0], values[3]);
       });
 
-      document.querySelector('button').addEventListener('click', () => {
-        var values = getValues()
-        if (confirm('Please confirm.')) {
-          cancelReservation(`${values[1]}:${values[2]}`, values[0], values[3])
-        }
-      })
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        var values = getValues();
+        var times = get("times")[values[3]]
+        console.log(times[oldRestaurant])
+        times[oldDate].push(oldTime);
+        cancelReservation(oldTime, oldDate, oldRestaurant)
+        setReservation(
+          values[4],
+          values[5],
+          values[6],
+          values[7],
+          `${values[1]}:${values[2]}`,
+          values[0],
+          values[3]
+        );
+
+        alert("Reservation Changed.");
+        window.location = "view.html";
+      });
     </script>
   </body>
 </html>

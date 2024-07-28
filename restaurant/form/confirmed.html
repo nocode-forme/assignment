@@ -6,6 +6,7 @@
     <title>Registration Confirmed</title>
     <link rel="stylesheet" href="header.css" />
     <link rel="stylesheet" href="confirmed.css" />
+    <script src="reservation-manager.js"></script>
   </head>
   <body>
     <header>
@@ -21,14 +22,27 @@
       <div class="acknowledgement">
         <h1>Reservation Complete</h1>
         <p>
-          For <strong>Isaac</strong> on
-          <strong>23th June 2024, 1.00pm</strong> for <strong>3</strong>pax at
-          <strong> Chakan</strong>.
+          For <span id="name"></span> on <span id="time"></span> at
+          <span id="restaurant"></span>.
         </p>
       </div>
       <div class="view">
         <a href="view.html">View Reservations</a>
       </div>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const reservation = get("reservations")[get("reservations").length - 1];
+        console.log(reservation);
+        document.getElementById(
+          "name"
+        ).innerText = `${reservation["salut"]}. ${reservation["fname"]} ${reservation["lname"]}`;
+        document.getElementById("time").innerText = `${reservation["time"]}`;
+        document.getElementById("restaurant").innerText = `${
+          reservation["restaurant"].charAt(0).toUpperCase() +
+          reservation["restaurant"].slice(1)
+        }`;
+      });
+    </script>
   </body>
 </html>

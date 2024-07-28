@@ -37,3 +37,7 @@ main a:hover {
   background-color: white;
   color: black;
 }
+
+span {
+  font-weight: bold;
+}

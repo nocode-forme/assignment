@@ -40,6 +40,13 @@ span {
   font-family: Noto Serif JP;
 }
 
+div p:first-child {
+  font-family: Playfair Display;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: -10%;
+}
+
 .reservation {
   height: 270px;
   display: block;

@@ -22,18 +22,7 @@
       <section></section>
     </main>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        getReservations();
-        var links = document.querySelectorAll("a[href='manage.html']");
-        for (i = 0; i < links.length; i++) {
-          links[i].removeEventListener()
-        }
-        for (i = 0; i < links.length; i++) {
-          links[i].addEventListener("click", () => {
-            set("managing", i-1);
-          });
-        }
-      });
+      getReservations();
     </script>
   </body>
 </html>

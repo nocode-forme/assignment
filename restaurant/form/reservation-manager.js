@@ -23,7 +23,7 @@ const monthNames = [
   "December",
 ];
 
-function initialise() {
+function initialiseTimes() {
   for (var x in times) {
     for (i = 0; i < 16; i++) {
       var newDate = parseDate(date.setDate(date.getDate() + 1));
@@ -55,7 +55,7 @@ function set(key, param) {
   storage.setItem(key, JSON.stringify(param));
 }
 
-function retrieve(param) {
+function get(param) {
   try {
     return JSON.parse(storage.getItem(param));
   } catch {
@@ -64,13 +64,13 @@ function retrieve(param) {
 }
 
 function getReservations() {
-  var reservations = retrieve("reservations");
+  var reservations = get("reservations");
   if (reservations == null) {
     var text = document.createElement("div");
     text.innerHTML =
       'You do not have any reservations. <br> Click <a href="reserve.html">here</a> to book a slot.';
     text.setAttribute("class", "no-reservation");
-    document.getElementsByTagName("section")[0].appendChild(text);
+    document.querySelector("section").appendChild(text);
   } else {
     for (i = 0; i < reservations.length; i++) {
       var r = reservations[i];
@@ -79,27 +79,33 @@ function getReservations() {
         r["restaurant"].charAt(0).toUpperCase() + r["restaurant"].slice(1);
       content.setAttribute("class", "reservation");
       content.innerHTML = `
+          <p> Reservation <span id='reservation-number'>${i + 1}</span></p>
           <h2 id='date'>${r["date"]}</h2>
           <p>
-            for: <strong>${restaurant} <span lang="jp">${restaurantNames[restaurant]}</span></strong>
+            for: <strong>${restaurant} <span lang="jp">${
+        restaurantNames[restaurant]
+      }</span></strong>
           </p>
           <p id='time'>at: <strong>${r["time"]}</strong></p>
-          <div class="manage-button">
+          <div class="manage-button" onclick="
+            set('managing', ${parseInt(i)})
+          ">
             <a href="manage.html">Manage</a>
           </div>
       `;
-      document.getElementsByTagName("section")[0].appendChild(content);
+      document.querySelector("section").appendChild(content);
     }
   }
 }
 
 function cancelReservation(time, date, restaurant) {
-  var reservations = retrieve('reservations')
-  reservations.splice(reservations.findIndex(() => {
-    reservations[restaurant]['time'] = time
-    reservations[restaurant]['date'] = date
-  }))
-  console.log(reservations)
+  var reservations = get("reservations");
+  reservations.splice(
+    reservations.findIndex(() => {
+      reservations[restaurant]["time"] = time;
+      reservations[restaurant]["date"] = date;
+    })
+  );
 }
 
 function setReservation(salut, fname, lname, email, time, date, restaurant) {
@@ -114,8 +120,8 @@ function setReservation(salut, fname, lname, email, time, date, restaurant) {
     restaurant: restaurant,
   };
 
-  var reservations = retrieve("reservations");
-  var times = retrieve("times");
+  var reservations = get("reservations");
+  var times = get("times");
   var index = times[restaurant][dateString].indexOf(time);
   times[restaurant][dateString].splice(index, 1);
   set("times", times);
@@ -130,9 +136,9 @@ function setReservation(salut, fname, lname, email, time, date, restaurant) {
 
 function checkIfAvailable(time, date, restaurant) {
   dateString = parseDate(date);
-  if (!(dateString in retrieve("times")[restaurant])) {
+  if (!(dateString in get("times")[restaurant])) {
     return false;
-  } else if (retrieve("times")[restaurant][dateString].includes(time)) {
+  } else if (get("times")[restaurant][dateString].includes(time)) {
     return true;
   } else {
     return false;
