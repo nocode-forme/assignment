@@ -38,6 +38,9 @@ function initialiseTimes() {
   }
   storage.removeItem("times");
   set("times", times);
+  if (get('reservations') == null) {
+    set('reservations', [])
+  }
 }
 
 function parseDate(date) {
@@ -65,7 +68,7 @@ function get(param) {
 
 function getReservations() {
   var reservations = get("reservations");
-  if (reservations == null) {
+  if (reservations.length == 0) {
     var text = document.createElement("div");
     text.innerHTML =
       'You do not have any reservations. <br> Click <a href="reserve.html">here</a> to book a slot.';
@@ -100,12 +103,17 @@ function getReservations() {
 
 function cancelReservation(time, date, restaurant) {
   var reservations = get("reservations");
+  var times = get('times')
   reservations.splice(
-    reservations.findIndex(() => {
-      reservations[restaurant]["time"] = time;
-      reservations[restaurant]["date"] = date;
+    reservations.findIndex((element) => {
+      element["time"] == time;
+      element["date"] == date;
+      element["restaurant"] == restaurant;
     })
   );
+  times[restaurant][date].push(time)
+  set('times', times)
+  set('reservations', reservations)
 }
 
 function setReservation(salut, fname, lname, email, time, date, restaurant) {

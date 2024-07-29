@@ -57,18 +57,6 @@
               </select>
             </div>
           </div>
-          <div class="inline">
-            <button
-              class="margin-top"
-              id="cancel"
-              onclick="cancelReservation()"
-            >
-              Cancel Reservation
-            </button>
-            <button id="check-availability" class="margin-top">
-              Check Availability
-            </button>
-          </div>
           <p id="availability"></p>
         </section>
         <hr />
@@ -105,8 +93,9 @@
             <input id="email" name="email" autocomplete="email" required />
           </div>
         </section>
-        <div>
-          <input id="submit" class="margin-top" type="submit" />
+        <div class="inline">
+          <button class="margin-top" id="cancel">Cancel Reservation</button>
+          <input id="submit" class="margin-top" type="submit" value="Change"/>
         </div>
       </form>
     </main>
@@ -128,50 +117,45 @@
         "-" +
         addZero(date.getDate());
       replaceValues();
-      
-      const oldTime = reservation["time"];
-      const oldDate = reservation["date"]
-      const oldRestaurant = reservation["restaurant"]
-      document
-        .getElementById("check-availability")
-        .addEventListener("click", () => {
-          var text = document.getElementById("availability");
-          var values = getValues();
-          if (
-            checkIfAvailable(`${values[1]}:${values[2]}`, values[0], values[3])
-          ) {
-            text.style.display = "none";
-            showHidden();
-          } else {
-            text.innerText = "No available slot was found.";
-            text.style.display = "block";
-          }
-        });
 
-      document.querySelector("button").addEventListener("click", async () => {
-        var values = getValues();
-        cancelReservation(`${values[1]}:${values[2]}`, values[0], values[3]);
+      const oldTime = reservation["time"];
+      const oldDate = reservation["date"];
+      const oldRestaurant = reservation["restaurant"];
+
+      document.querySelector("button").addEventListener("click", (e) => {
+        e.preventDefault();
+        cancelReservation(oldTime, oldDate, oldRestaurant);
+        alert("Reservation Cancelled.");
+        window.location = "view.html";
       });
 
-      document.querySelector("form").addEventListener("submit", (e) => {
+      document.getElementById("submit").addEventListener("click", (e) => {
         e.preventDefault();
         var values = getValues();
-        var times = get("times")[values[3]]
-        console.log(times[oldRestaurant])
-        times[oldDate].push(oldTime);
-        cancelReservation(oldTime, oldDate, oldRestaurant)
-        setReservation(
-          values[4],
-          values[5],
-          values[6],
-          values[7],
-          `${values[1]}:${values[2]}`,
-          values[0],
-          values[3]
-        );
-
-        alert("Reservation Changed.");
-        window.location = "view.html";
+        var times = get("times")[values[3]];
+        var text = document.getElementById("availability");
+        var values = getValues();
+        if (
+          checkIfAvailable(`${values[1]}:${values[2]}`, values[0], values[3])
+        ) {
+          times[oldDate].push(oldTime);
+          cancelReservation(oldTime, oldDate, oldRestaurant);
+          setReservation(
+            values[4],
+            values[5],
+            values[6],
+            values[7],
+            `${values[1]}:${values[2]}`,
+            values[0],
+            values[3]
+          );
+          alert("Reservation Changed.");
+          window.location = "view.html";
+          showHidden();
+        } else {
+          text.innerText = "No available slot was found.";
+          text.style.display = "block";
+        }
       });
     </script>
   </body>
