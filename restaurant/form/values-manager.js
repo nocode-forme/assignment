@@ -1,3 +1,5 @@
+// gets the values of all input fields in the form 
+// possible since both manage.html and reserve.html share the same form
 function getValues() {
   return [
     document.querySelector('input[name="date"]').value,
@@ -11,6 +13,8 @@ function getValues() {
   ];
 }
 
+// replaces the values of the input with the values from localStorage
+// used in manage.html in order to provide user with default values
 function replaceValues() {
   document.querySelector('select[name="restaurant"]').value =
     reservation["restaurant"];

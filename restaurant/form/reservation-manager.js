@@ -1,13 +1,22 @@
+// reservation-manager.js is responsible for all the backend action that saves reservations to localStorage
+// all free slots are also managed here
+
+// represents all the free slots available
 var times = { chakan: {}, hizure: {}, banen: {} };
+
 var storage = window.localStorage;
 var date = new Date();
+
+// in charge of determing which reservation is being managed, such that informastion is displayed correctly
 var managing = 0;
 
+// used to include corresponding japanese name into the confirm page
 const restaurantNames = {
   Chakan: "茶館",
   Hizure: "昼膳",
   Banen: "晩宴",
 };
+
 const monthNames = [
   "January",
   "February",
@@ -23,7 +32,9 @@ const monthNames = [
   "December",
 ];
 
-function initialiseTimes() {
+// used to remove all reservations and clear up all free slots
+// runs when phone-no.html is loaded
+function initialise() {
   for (var x in times) {
     for (i = 0; i < 16; i++) {
       var newDate = parseDate(date.setDate(date.getDate() + 1));
@@ -36,13 +47,14 @@ function initialiseTimes() {
     }
     date = new Date();
   }
-  storage.removeItem("times");
+  storage.removeItem("reservations");
   set("times", times);
   if (get('reservations') == null) {
     set('reservations', [])
   }
 }
 
+// ensures that all dates are set to 'dd MMMM yyyy' -> '15 July 2024'
 function parseDate(date) {
   date = new Date(date);
   return (
@@ -54,18 +66,23 @@ function parseDate(date) {
   );
 }
 
+// sets the stringified value into the set key
 function set(key, param) {
   storage.setItem(key, JSON.stringify(param));
 }
 
-function get(param) {
+// retreives value from set key, and decodes it after (if there is a value)
+function get(key) {
   try {
-    return JSON.parse(storage.getItem(param));
+    return JSON.parse(storage.getItem(key));
   } catch {
     return null;
   }
 }
 
+// gets list of reservations and formats it within the view.html page
+// if no reservation is present, adds text indicating so and redirects user to the reserve.html page when they click on the link
+// otherwise, shows reservations with a button in order for them to manage that reservation
 function getReservations() {
   var reservations = get("reservations");
   if (reservations.length == 0) {
@@ -101,9 +118,10 @@ function getReservations() {
   }
 }
 
+// cancels the reservation, and frees up the time slot
 function cancelReservation(time, date, restaurant) {
   var reservations = get("reservations");
-  var times = get('times')
+  times = get('times')
   reservations.splice(
     reservations.findIndex((element) => {
       element["time"] == time;
@@ -116,6 +134,7 @@ function cancelReservation(time, date, restaurant) {
   set('reservations', reservations)
 }
 
+// sets the reservation, and blocks out the respective time slot
 function setReservation(salut, fname, lname, email, time, date, restaurant) {
   dateString = parseDate(date);
   var reservation = {
@@ -129,8 +148,8 @@ function setReservation(salut, fname, lname, email, time, date, restaurant) {
   };
 
   var reservations = get("reservations");
-  var times = get("times");
   var index = times[restaurant][dateString].indexOf(time);
+  times = get("times");
   times[restaurant][dateString].splice(index, 1);
   set("times", times);
 
@@ -142,8 +161,9 @@ function setReservation(salut, fname, lname, email, time, date, restaurant) {
   }
 }
 
+// checks whether the slot at a specifc time, date and restaurant is free
 function checkIfAvailable(time, date, restaurant) {
-  dateString = parseDate(date);
+  const dateString = parseDate(date);
   if (!(dateString in get("times")[restaurant])) {
     return false;
   } else if (get("times")[restaurant][dateString].includes(time)) {
