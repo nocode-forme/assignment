@@ -76,7 +76,7 @@ input:first-child {
   width: 25%;
 }
 
-input[type="button"] {
+input[type="submit"] {
   width: 100%;
   border: 1px solid black;
   border-radius: 10px;
@@ -87,10 +87,11 @@ input[type="button"] {
   font-family: Playfair Display;
 }
 
-input[type="button"]:hover {
+input[type="submit"]:hover {
   background-color: white;
   color: black;
   border-color: white;
+  cursor: pointer;
 }
 
 #center {

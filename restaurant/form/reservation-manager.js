@@ -147,9 +147,9 @@ function setReservation(salut, fname, lname, email, time, date, restaurant) {
     restaurant: restaurant,
   };
 
+  times = get("times");
   var reservations = get("reservations");
   var index = times[restaurant][dateString].indexOf(time);
-  times = get("times");
   times[restaurant][dateString].splice(index, 1);
   set("times", times);
 
